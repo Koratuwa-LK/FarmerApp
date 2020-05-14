@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
   return (
     <ImageBackground
       style={styles.img}
-      source={require("../../assets/home.jpg")}
+      source={require("../../assets/images/homeBackground.jpg")}
     >
       <Block>
         <ScrollView
@@ -37,7 +37,16 @@ export default function Home({ navigation }) {
               onPress={() => navigation.navigate("AddProducts")}
             >
               <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+
+                >
+                  <Image
+                    source={require("../../assets/icons/addProducts.png")}
+                  />
+                </Badge>
+                <Caption medium height={50}>
                   Add Products
                 </Caption>
               </Card>
@@ -48,7 +57,16 @@ export default function Home({ navigation }) {
               onPress={() => navigation.navigate("MyOrders")}
             >
               <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
+                <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+
+                >
+                  <Image
+                    source={require("../../assets/icons/orders.png")}
+                  />
+                </Badge>
+                <Caption medium height={50}>
                   My Orders
                 </Caption>
               </Card>
@@ -59,7 +77,17 @@ export default function Home({ navigation }) {
               onPress={() => navigation.navigate("MyOrders")}
             >
               <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
+              <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+
+
+                >
+                  <Image
+                    source={require("../../assets/icons/market.png")}
+                  />
+                </Badge>
+                <Caption medium height={50}>
                   View Market
                 </Caption>
               </Card>
@@ -70,7 +98,17 @@ export default function Home({ navigation }) {
               onPress={pressHandler}
             >
               <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
+              <Badge
+                  margin={[0, 0, 15]}
+                  size={50}
+
+
+                >
+                  <Image
+                    source={require("../../assets/icons/callDriver.png")}
+                  />
+                </Badge>
+                <Caption medium height={50}>
                   Call Driver
                 </Caption>
               </Card>
