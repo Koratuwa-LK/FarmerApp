@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -6,79 +6,83 @@ import {
   Image,
   Button,
   TouchableHighlight,
+  TouchableOpacity,
   ImageBackground,
+  Dimensions,
+  ScrollView,
 } from "react-native";
+
+import { Card, Badge, Block, Caption } from "../components";
+import { theme } from "../other";
+
+const { width } = Dimensions.get("window");
 
 export default function Home({ navigation }) {
   const pressHandler = () => {
     navigation.navigate("AddProducts");
   };
   return (
-    
-    <ImageBackground style={styles.img} source={require('../../assets/home.jpg')}>
-    <View>
-      <View
-        style={{
-          flexDirection: "column",
-          alignContent: "center",
-          alignItems: "center",
-          marginTop: 200,
-        }}
-      >
-        <View style={{ flexDirection: "row" }}>
-          <TouchableHighlight
-            underlayColor="transparent"
-            onPress={() => navigation.navigate('AddProducts')}
-            style={{marginRight:50}}
-          >
-            <View style={{alignContent:"center",alignItems:'center',marginBottom: 50}}>
-              <Text style={styles.itm}>Add Products</Text>
-            </View>
-          </TouchableHighlight>
+    <ImageBackground
+      style={styles.img}
+      source={require("../../assets/home.jpg")}
+    >
+      <Block>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ paddingVertical: theme.sizes.base * 2 }}
+        >
+          <Block flex={false} row space="between" style={styles.categories}>
+            <TouchableOpacity
+              underlayColor="transparent"
+              onPress={() => navigation.navigate("AddProducts")}
+            >
+              <Card center middle shadow style={styles.category}>
+                <Caption medium height={20}>
+                  Add Products
+                </Caption>
+              </Card>
+            </TouchableOpacity>
 
-          <TouchableHighlight
-            underlayColor="transparent"
-            onPress={() => navigation.navigate('MyOrders')}
-            style = {{width: '30%'}}
-          >
-            <View>
-            <Text style={styles.itm}>My Orderss</Text>
-            </View>
-          </TouchableHighlight>
-        </View>
-        <View style={{ flexDirection: "row" }}>
-        <TouchableHighlight
-            underlayColor="transparent"
-            onPress={() => navigation.navigate('MyOrders')}
-            style={{marginRight:50, width: '30%'}}
-          >
-            <View>
-              <Text style={styles.itm}>View Market</Text>
-            </View>
-          </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor="transparent"
+              onPress={() => navigation.navigate("MyOrders")}
+            >
+              <Card center middle shadow style={styles.category}>
+                <Caption medium height={20}>
+                  My Orders
+                </Caption>
+              </Card>
+            </TouchableHighlight>
 
-          <TouchableHighlight
-            //underlayColor="rgba(73,182,77,1,0.9)"
-            onPress={pressHandler}
-            style={{width: '30%'}}
-          >
-            <View>
-            <Text style={styles.itm}>Get Driver</Text>
-            </View>
-          </TouchableHighlight>
-        </View>
-      </View>
-    </View>
+            <TouchableHighlight
+              underlayColor="transparent"
+              onPress={() => navigation.navigate("MyOrders")}
+            >
+              <Card center middle shadow style={styles.category}>
+                <Caption medium height={20}>
+                  View Market
+                </Caption>
+              </Card>
+            </TouchableHighlight>
+
+            <TouchableHighlight
+              //underlayColor="rgba(73,182,77,1,0.9)"
+              onPress={pressHandler}
+            >
+              <Card center middle shadow style={styles.category}>
+                <Caption medium height={20}>
+                  Call Driver
+                </Caption>
+              </Card>
+            </TouchableHighlight>
+          </Block>
+        </ScrollView>
+      </Block>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    height: 80,
-    paddingTop: 38,
-    backgroundColor: "seagreen",
-  },
   title: {
     textAlign: "center",
     color: "#fff",
@@ -86,15 +90,26 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   img: {
-    flex:1,
+    flex: 1,
   },
   itm: {
-    color: 'white',
+    color: "white",
     padding: 16,
     marginTop: 16,
-    borderColor: 'green',
+    borderColor: "green",
     borderWidth: 5,
     borderStyle: "dashed",
     borderRadius: 20,
-  }
+  },
+  category: {
+    // this should be dynamic based on screen width
+    minWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+    maxWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+    maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+  },
+  categories: {
+    flexWrap: "wrap",
+    paddingHorizontal: theme.sizes.base * 2,
+    marginBottom: theme.sizes.base * 3.5,
+  },
 });
