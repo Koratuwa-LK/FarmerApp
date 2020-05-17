@@ -204,5 +204,6 @@ export const styles = StyleSheet.create({
   black: { backgroundColor: theme.colors.black },
   white: { backgroundColor: theme.colors.white },
   gray: { backgroundColor: theme.colors.gray },
-  gray2: { backgroundColor: theme.colors.gray2 }
+  gray2: { backgroundColor: theme.colors.gray2 },
+  transparent : { backgroundColor: theme.colors.transparent}
 });

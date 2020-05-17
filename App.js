@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, ImageBackground, SafeAreaView } from 'react-native';
-import HomeScreen from './src/screens/homeScreen';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
 
-import Navigator from './src/navigations/homeStack';
+import Navigator from "./src/navigations/drawer";
+import Drawer from "./src/navigations/drawer"
 
 export default function App() {
-
   return (
-    <SafeAreaView style={styles.container}>
-      <Navigator/>     
-    </SafeAreaView>
+      <Navigator />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

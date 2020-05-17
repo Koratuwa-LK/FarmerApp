@@ -24,61 +24,80 @@ export default function Home({ navigation }) {
   return (
     <ImageBackground
       style={styles.img}
-      source={require("../../assets/home.jpg")}
+      source={require("../../assets/images/homeBackground.jpg")}
     >
-        
-      <Block>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          style={{ paddingVertical: theme.sizes.base * 2 }}
-        >
-          <Block flex={false} row space="between" style={styles.categories}>
-            <TouchableOpacity
-              underlayColor="transparent"
-              onPress={() => navigation.navigate("AddProducts")}
-            >
-              <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
-                  1
-                </Caption>
-              </Card>
-            </TouchableOpacity>
+      <View style={{ flex: 1, marginTop: 120 }}>
+        <Block>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{ paddingVertical: theme.sizes.base * 2 }}
+          >
+            <Block flex={false} row space="between" style={styles.categories}>
+              <TouchableOpacity
+                underlayColor="transparent"
+                onPress={() => navigation.navigate("AddProducts")}
+                style={{ marginBottom: 10, marginRight: 10 }}
+              >
+                <Card center middle shadow style={styles.category}>
+                  <Badge margin={[0, 0, 15]} size={0}>
+                    <Image
+                      source={require("../../assets/icons/addProducts.png")}
+                    />
+                  </Badge>
+                  <Caption medium height={50}>
+                    Add Products
+                  </Caption>
+                </Card>
+              </TouchableOpacity>
 
-            <TouchableHighlight
-              underlayColor="transparent"
-              onPress={() => navigation.navigate("MyOrders")}
-            >
-              <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
-                  2
-                </Caption>
-              </Card>
-            </TouchableHighlight>
+              <TouchableHighlight
+                underlayColor="transparent"
+                onPress={() => navigation.navigate("MyOrders")}
+                style={{ marginBottom: 10 }}
+              >
+                <Card center middle shadow style={styles.category}>
+                  <Badge margin={[0, 0, 15]} size={50}>
+                    <Image source={require("../../assets/icons/orders.png")} />
+                  </Badge>
+                  <Caption medium height={50}>
+                    My Orders
+                  </Caption>
+                </Card>
+              </TouchableHighlight>
 
-            <TouchableHighlight
-              underlayColor="transparent"
-              onPress={() => navigation.navigate("MyOrders")}
-            >
-              <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
-                  3
-                </Caption>
-              </Card>
-            </TouchableHighlight>
+              <TouchableHighlight
+                underlayColor="transparent"
+                onPress={() => navigation.navigate("MyOrders")}
+              >
+                <Card center middle shadow style={styles.category}>
+                  <Badge margin={[0, 0, 15]} size={50}>
+                    <Image source={require("../../assets/icons/market.png")} />
+                  </Badge>
+                  <Caption medium height={50}>
+                    View Market
+                  </Caption>
+                </Card>
+              </TouchableHighlight>
 
-            <TouchableHighlight
-              //underlayColor="rgba(73,182,77,1,0.9)"
-              onPress={pressHandler}
-            >
-              <Card center middle shadow style={styles.category}>
-                <Caption medium height={20}>
-                  4
-                </Caption>
-              </Card>
-            </TouchableHighlight>
-          </Block>
-        </ScrollView>
-      </Block>
+              <TouchableHighlight
+                underlayColor="transparent"
+                onPress={() => navigation.navigate("BookDriver")}
+              >
+                <Card center middle shadow style={styles.category}>
+                  <Badge margin={[0, 0, 15]} size={50}>
+                    <Image
+                      source={require("../../assets/icons/callDriver.png")}
+                    />
+                  </Badge>
+                  <Caption medium height={50}>
+                    Call Driver
+                  </Caption>
+                </Card>
+              </TouchableHighlight>
+            </Block>
+          </ScrollView>
+        </Block>
+      </View>
     </ImageBackground>
   );
 }
@@ -107,6 +126,7 @@ const styles = StyleSheet.create({
     minWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
     maxWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
     maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+    opacity: 0.8,
   },
   categories: {
     flexWrap: "wrap",
