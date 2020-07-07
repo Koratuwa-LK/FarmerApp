@@ -1,19 +1,24 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ImageBackground,
+  SafeAreaView,
+} from "react-native";
+
+import Navigator from "./src/navigations/drawer";
+import Drawer from "./src/navigations/drawer"
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+      <Navigator />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
