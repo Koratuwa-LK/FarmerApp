@@ -38,6 +38,55 @@ class Fire {
         return displayName;
     }
 
+    addPost = async ({ crop, quantity, price, economicCenter, localUri }) => {
+    const remoteUri = await this.uploadPhotoAsync(localUri);
+    return new Promise((res, rej) => {
+      firebase
+        .database()
+        .ref("Stocks/")
+        .push({
+          crop,
+          economicCenter,
+          quantity,
+          price,
+          phoneNum: this.getPhoneNum,
+          name: this.getName,
+          uid: this.uid,
+          timestamp: this.timestamp,
+          image: remoteUri,
+        })
+        .then((ref) => {
+          res(ref);
+        })
+        .catch((error) => {
+          rej(error);
+        });
+    });
+    };
+
+    uploadPhotoAsync = async (uri) => {
+      const path = `photos/${this.uid}/${Date.now()}.jpg`;
+      return new Promise(async (res, rej) => {
+        const response = await fetch(uri);
+        const file = await response.blob();
+  
+        let upload = firebase.storage().ref(path).put(file);
+
+        upload.on(
+          "state_changed",
+          (snapshot) => {},
+          (err) => {
+            rej(err);
+          },
+          async () => {
+            const url = await upload.snapshot.ref.getDownloadURL();
+
+            res(url);
+          }
+        );
+      });
+     };
+
     uploadPost = async({ price, quantity, id }) => {
         console.log(id);
         firebase.database().ref("Stocks/").child(id).update({ price, quantity });
@@ -49,6 +98,21 @@ class Fire {
             .database()
             .ref("Stocks/" + id)
             .remove();
+    };
+
+    acptOrdr = async ({ id }) => {
+      console.log(id);
+      firebase.database().ref("orders/").child(id).update({ Accept: true });
+    };
+
+    cmptOrdr = async ({ id }) => {
+      console.log(id);
+      firebase.database().ref("orders/").child(id).update({ CompleteOrder: true });
+    };
+
+    rjctOrdr = async ({ id }) => {
+      console.log(id);
+      firebase.database().ref("orders/").child(id).update({ Reject: true });
     };
 
     get firestore() {
