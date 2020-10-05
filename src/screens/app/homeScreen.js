@@ -118,6 +118,36 @@ export default class Home extends React.Component {
                     </Caption>
                   </Card>
                 </TouchableHighlight>
+                <TouchableHighlight 
+                  underlayColor="transparent"
+                  onPress={() => this.props.navigation.navigate("addMyDetails")}
+                >
+                  <Card center middle shadow style={styles.category}>
+                    <Badge margin={[0, 0, 15]} size={50}>
+                      <Image
+                        source={require("../../../assets/icons/callDriver.png")}
+                      />
+                    </Badge>
+                    <Caption medium height={50}>
+                      Call Driver
+                    </Caption>
+                  </Card>
+                </TouchableHighlight>
+                <TouchableHighlight
+                  underlayColor="transparent"
+                  onPress={() => this.props.navigation.navigate("DriverList")}
+                >
+                  <Card center middle shadow style={styles.category}>
+                    <Badge margin={[0, 0, 15]} size={50}>
+                      <Image
+                        source={require("../../../assets/icons/callDriver.png")}
+                      />
+                    </Badge>
+                    <Caption medium height={50}>
+                      Call Driver
+                    </Caption>
+                  </Card>
+                </TouchableHighlight>
               </Block>
             </ScrollView>
             <TouchableOpacity style={styles.button} onPress={this.signOutUser}>

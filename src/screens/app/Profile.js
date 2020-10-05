@@ -7,6 +7,9 @@ export default class Profile extends React.Component {
       <View style={styles.container}>
         <Text> Market </Text>
       </View>
+      <View style={styles.container}>
+        <Text> Market </Text>
+      </View>
     );
   }
 }
