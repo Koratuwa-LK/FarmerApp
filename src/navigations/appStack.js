@@ -12,6 +12,7 @@ import EditStock from "../screens/app/EditStock";
 import OrderHome from "../screens/app/OrderHome";
 import AcceptOrder from "../screens/app/AcceptOrders";
 import CompleteOrder from "../screens/app/CompletedOrder";
+import addMyDetails from "../screens/app/addMyDetails";
 
 const AppStack = createStackNavigator(
   {
@@ -26,6 +27,7 @@ const AppStack = createStackNavigator(
     DriverMap: DriverMap,
     Market: Market,
     EditStock: EditStock,
+    addMyDetails: addMyDetails,
   },
   {
     headerMode: "none",
