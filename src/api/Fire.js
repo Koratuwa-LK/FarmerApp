@@ -38,6 +38,31 @@ class Fire {
         return displayName;
     }
 
+  addDetails = async ({ crop, quantity, district, landSize, year }) => {
+    return new Promise((res, rej) => {
+      firebase
+        .database()
+        .ref("CropDetails/")
+        .push({
+          crop,
+          district,
+          quantity,
+          landSize,
+          phoneNum: this.getPhoneNum,
+          name: this.getName,
+          uid: this.uid,
+          timestamp: this.timestamp,
+          year: year,
+        })
+        .then((ref) => {
+          res(ref);
+        })
+        .catch((error) => {
+          rej(error);
+        });
+    });
+  };
+
     addPost = async ({ crop, quantity, price, economicCenter, localUri }) => {
     const remoteUri = await this.uploadPhotoAsync(localUri);
     return new Promise((res, rej) => {
