@@ -118,33 +118,33 @@ export default class Home extends React.Component {
                     </Caption>
                   </Card>
                 </TouchableHighlight>
-                <TouchableHighlight 
+                <TouchableHighlight
                   underlayColor="transparent"
-                  onPress={() => this.props.navigation.navigate("addMyDetails")}
+                  onPress={() => this.props.navigation.navigate("AddMyDetails")}
                 >
                   <Card center middle shadow style={styles.category}>
-                    <Badge margin={[0, 0, 15]} size={50}>
+                    <Badge margin={[0, 0, 15]} size={20}>
                       <Image
-                        source={require("../../../assets/icons/callDriver.png")}
+                        source={require("../../../assets/icons/details.png")}
                       />
                     </Badge>
                     <Caption medium height={50}>
-                      Call Driver
+                      Farming Details
                     </Caption>
                   </Card>
                 </TouchableHighlight>
                 <TouchableHighlight
                   underlayColor="transparent"
-                  onPress={() => this.props.navigation.navigate("DriverList")}
+                  onPress={() => this.props.navigation.navigate("OverviewHome")}
                 >
                   <Card center middle shadow style={styles.category}>
                     <Badge margin={[0, 0, 15]} size={50}>
                       <Image
-                        source={require("../../../assets/icons/callDriver.png")}
+                        source={require("../../../assets/icons/overview.png")}
                       />
                     </Badge>
                     <Caption medium height={50}>
-                      Call Driver
+                      Overview
                     </Caption>
                   </Card>
                 </TouchableHighlight>
