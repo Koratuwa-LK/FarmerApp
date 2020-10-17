@@ -70,7 +70,7 @@ const AppContainer = createStackNavigator(
           navigationOptions: {
             tabBarIcon: ({ tintColor }) => (
               <Ionicons
-                name="ios-person"
+                name="ios-arrow-dropup"
                 size={24}
                 color={tintColor}
               ></Ionicons>
