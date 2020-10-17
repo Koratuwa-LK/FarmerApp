@@ -13,6 +13,7 @@ import OrderHome from "../screens/app/OrderHome";
 import AcceptOrder from "../screens/app/AcceptOrders";
 import CompleteOrder from "../screens/app/CompletedOrder";
 import addMyDetails from "../screens/app/addMyDetails";
+import ReviewHistory from "../screens/app/ReviewHistory";
 
 const AppStack = createStackNavigator(
   {
@@ -28,6 +29,7 @@ const AppStack = createStackNavigator(
     Market: Market,
     EditStock: EditStock,
     addMyDetails: addMyDetails,
+    ReviewHistory: ReviewHistory,
   },
   {
     headerMode: "none",
