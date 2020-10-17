@@ -14,6 +14,7 @@ import AcceptOrder from "../screens/app/AcceptOrders";
 import CompleteOrder from "../screens/app/CompletedOrder";
 import addMyDetails from "../screens/app/addMyDetails";
 import ReviewHistory from "../screens/app/ReviewHistory";
+import RideHistory from "../screens/app/RideHistory";
 
 const AppStack = createStackNavigator(
   {
@@ -30,6 +31,7 @@ const AppStack = createStackNavigator(
     EditStock: EditStock,
     addMyDetails: addMyDetails,
     ReviewHistory: ReviewHistory,
+    RideHistory: RideHistory,
   },
   {
     headerMode: "none",
